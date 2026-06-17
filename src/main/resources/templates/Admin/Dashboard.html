@@ -1,0 +1,150 @@
+<!-- admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en" th:replace="~{Admin/adminbase::layout(~{::main})}">
+<body>
+<main class="p-4 pt-0">
+	<style>
+	.card-custom {
+            border: none;
+            border-radius: 1rem;
+            transition: 0.3s ease-in-out;
+        }
+
+        .card-custom:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-title {
+            font-weight: 700;
+            color: #333;
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: #fff;
+        }
+
+        .bg-gradient-success {
+            background: linear-gradient(135deg, #28a745, #218838);
+            color: #fff;
+        }
+
+        .bg-gradient-warning {
+            background: linear-gradient(135deg, #ffc107, #e0a800);
+            color: #fff;
+        }
+
+        .bg-gradient-danger {
+            background: linear-gradient(135deg, #dc3545, #c82333);
+            color: #fff;
+        }
+
+        .bg-gradient-info {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: #fff;
+        }
+
+        .bg-gradient-dark {
+            background: linear-gradient(135deg, #343a40, #23272b);
+            color: #fff;
+        }
+    </style>
+    <!-- Dashboard -->
+<div class="container mt-3">
+    <h2 class="text-center dashboard-title mb-5">Welcome to Admin Dashboard</h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <div class="card card-custom bg-gradient-primary text-center">
+                <div class="card-body">
+                    <div class="stat-icon"><i class="fas fa-users"></i></div>
+                    <h5>Total Customers</h5>
+                    <h3 th:text="${totalCustomers}">0</h3>
+                    <a href="ViewAllCustomer" class="btn btn-outline-light btn-sm mt-2">Manage</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card card-custom shadow bg-gradient-success text-center">
+                <div class="card-body">
+                    <div class="stat-icon"><i class="fas fa-boxes"></i></div>
+                    <h5>Total Products</h5>
+                    <h3 th:text="${totalProducts}">0</h3>
+                    <a href="ViewProduct" class="btn btn-outline-light btn-sm mt-2">Manage</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card card-custom shadow bg-gradient-warning text-center">
+                <div class="card-body">
+                    <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+                    <h5>Pending Enquiries</h5>
+                    <h3 th:text="${totalEnquiries}">0</h3>
+                    <a href="Enquiries" class="btn btn-outline-light btn-sm mt-2">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card card-custom shadow bg-gradient-danger text-center">
+                <div class="card-body">
+                    <div class="stat-icon"><i class="fas fa-exclamation-circle"></i></div>
+                    <h5>Complaints</h5>
+                    <h3 th:text="${totalComplaints}">0</h3>
+                    <a href="ManageComplaints" class="btn btn-outline-light btn-sm mt-2">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card card-custom shadow bg-gradient-info text-center p-0 p-lg-5 h-100">
+                <div class="card-body">
+                    <div class="stat-icon"><i class="fas fa-comment-dots"></i></div>
+                    <h5>Feedback</h5>
+                    <h3 th:text="${totalFeedback}">0</h3>
+                    <a href="ManageFeedback" class="btn btn-outline-light btn-sm mt-2">View</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card card-custom shadow bg-gradient-dark text-center p-0 p-lg-5 h-100">
+                <div class="card-body">
+                    <div class="stat-icon"><i class="fas fa-bullhorn"></i></div>
+                    <h5>News & Events</h5>
+                    <h3 th:text="${totalNewsEvents}">0</h3>
+                    <a href="ManageNewsAndEvents" class="btn btn-outline-light btn-sm mt-2">Manage</a>
+                </div>
+            </div>
+        </div>
+        
+         <!-- Recent Enquiries -->
+    <div class="col-md-6">
+        <div class="card card-custom bg-white shadow p-4">
+            <h5 class="mb-3"><i class="fas fa-envelope-open-text text-info"></i> Recent Enquiries</h5>
+            <ul class="list-group list-group-flush">
+                <li th:each="enquiry : ${recentEnquiries}" class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <strong th:text="${enquiry.name}">John Doe</strong><br>
+                        <small th:text="${enquiry.message}">Need help with product...</small>
+                    </span>
+                    <span class="badge bg-info" th:text="${enquiry.status}">PENDING</span>
+                </li>
+            </ul>
+           <a href="/Admin/Enquiries" class="btn btn-link mt-3">View All Enquiries</a>
+        </div>
+
+    </div>
+</div>
+</main>
+</body>
+</html>

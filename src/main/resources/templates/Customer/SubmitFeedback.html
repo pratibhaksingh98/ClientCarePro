@@ -1,0 +1,57 @@
+<html th:replace="~{Customer/customerbase::layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <main>
+      <div class="col-md-7 mx-auto mt-5">
+        <div class="card shadow-lg rounded-4 p-4">
+          <h3 class="mb-4 text-center text-primary">We Value Your Feedback</h3>
+
+          <!-- Success Alert -->
+          <div th:if="${success}" class="alert alert-success text-center" role="alert">
+            Thank you! Your feedback has been submitted successfully.
+          </div>
+          <form th:action="@{SubmitFeedback}" method="post" th:object="${feedback}" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="rating" class="form-label">Rating <span class="text-danger">*</span></label>
+              <select class="form-select" id="rating" th:field="*{rating}" required>
+                <option value="0">Choose a rating</option>
+                <option value="1">1 - 😞 Very Poor</option>
+				<option value="2">2 - 😕 Poor</option>
+				<option value="3">3 - 😐 Average</option>
+				<option value="4">4 - 🙂 Good</option>
+				<option value="5">5 - 🤩 Excellent</option> 
+              </select>
+              <div class="invalid-feedback">Please select a rating.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="comments" class="form-label">Comments <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="comments" th:field="*{comments}" rows="4" placeholder="Share your experience..." required></textarea>
+              <div class="invalid-feedback">Comments are required.</div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">Submit Feedback</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        // Bootstrap validation
+        (function () {
+          'use strict';
+          var forms = document.querySelectorAll('.needs-validation');
+          Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        })();
+      </script>
+    </main>
+  </body>
+</html>

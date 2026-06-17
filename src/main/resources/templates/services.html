@@ -1,0 +1,107 @@
+<html th:replace="~{base::layout(~{::main})}">
+  <body>
+    <main class="py-5 bg-white">
+      <div class="container">
+        <!-- Header -->
+        <div class="text-center mb-5">
+          <h3 class="display-6 text-primary fw-bold">Our Services</h3>
+          <p class="lead text-secondary">Explore how ClientCare Pro helps you deliver exceptional customer experiences.</p>
+          <hr class="w-25 mx-auto text-primary">
+        </div>
+
+        <!-- Service Cards -->
+        <div class="row g-4">
+          <!-- Customer Inquiry -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow border-0 text-center rounded-3">
+              <div class="bg-primary rounded-top-5" style="height: 5px;"></div>
+              <div class="card-body p-5">
+                <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
+                <h5 class="card-title fw-semibold">Customer Enquiry Management</h5>
+                <p class="card-text text-muted">
+                  Track and respond to all customer questions quickly and efficiently through a centralized system.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feedback Collection -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow border-0 text-center rounded-3">
+              <div class="bg-primary rounded-top-5" style="height: 5px;"></div>
+              <div class="card-body p-5">
+                <i class="fas fa-comments fa-3x text-success mb-3"></i>
+                <h5 class="card-title fw-semibold">Feedback Collection</h5>
+                <p class="card-text text-muted">
+                  Collect valuable customer insights and improve your services using easy-to-use feedback tools.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Complaint Resolution -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow border-0 text-center rounded-3">
+              <div class="bg-primary rounded-top-5" style="height: 5px;"></div>
+              <div class="card-body p-5">
+                <i class="fas fa-tools fa-3x text-danger mb-3"></i>
+                <h5 class="card-title fw-semibold">Complaint Resolution</h5>
+                <p class="card-text text-muted">
+                  Automate complaint tracking and resolve issues proactively with a structured ticketing system.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow border-0 text-center rounded-3">
+              <div class="bg-primary rounded-top-5" style="height: 5px;"></div>
+              <div class="card-body p-5">
+                <i class="fas fa-box-open fa-3x text-warning mb-3"></i>
+                <h5 class="card-title fw-semibold">Product Information</h5>
+                <p class="card-text text-muted">
+                  Provide customers with clear product information, specifications, and updates in one place.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- News & Events -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow rounded-3 border-0 text-center">
+              <div class="bg-primary rounded-top-5" style="height: 5px;"></div>
+              <div class="card-body p-5">
+                <i class="fas fa-bullhorn fa-3x text-info mb-3"></i>
+                <h5 class="card-title fw-semibold">News & Events</h5>
+                <p class="card-text text-muted">
+                  Keep customers informed with announcements, promotions, and event updates.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Secure Login -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card h-100 shadow rounded-3 border-0 text-center">
+              <div class="bg-primary rounded-top-5" style="height: 5px;"></div>
+              <div class="card-body p-5">
+                <i class="fas fa-user-lock fa-3x text-secondary mb-3"></i>
+                <h5 class="card-title fw-semibold">Secure Login</h5>
+                <p class="card-text text-muted">
+                  Provide role-based access for administrators and customers with data privacy and security.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-5">
+          <p class="text-muted">Have a question or need more info?</p>
+          <a th:href="@{/contact}" class="btn btn-primary px-4">Contact Us</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

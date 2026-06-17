@@ -1,0 +1,62 @@
+<html lang="en" th:replace="~{Admin/adminbase::layout(~{::main})}">
+<body>
+<main class="p-4">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-header bg-primary text-white rounded-top-4">
+                <h4 class="mb-0"><i class="fas fa-bullhorn me-2"></i> Add News / Event</h4>
+            </div>
+            <div class="card-body px-5 py-4">
+                <form th:action="@{AddNewsAndEvents}" method="post" th:object="${newsEvents}" enctype="multipart/form-data">
+
+                    <!-- Title -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Title</label>
+                        <input type="text" class="form-control rounded-pill" th:field="*{title}" required placeholder="Title..."/>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Description</label>
+                        <textarea class="form-control rounded-3" th:field="*{description}" rows="4" required placeholder="Enter description..."></textarea>
+                    </div>
+
+                    <!-- Type & Date -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Type</label>
+                            <select class="form-select rounded-pill" th:field="*{type}" required>
+                                <option value="" selected>Select type</option>
+                                <option value="NEWS">News</option>
+                                <option value="EVENT">Event</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Event/News Date</label>
+                            <input type="datetime-local" class="form-control rounded-pill" th:field="*{eventDate}" required />
+                        </div>
+                    </div>
+
+                    <!-- Banner Upload -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Banner Image</label>
+                        <input type="file" class="form-control rounded-pill" name="imageFile" accept="image/*" required />
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-success px-4 rounded-pill">
+                            <i class="fas fa-save me-1"></i> Save
+                        </button>
+                        <a th:href="@{ManageNewsAndEvents}" class="btn btn-secondary px-4 rounded-pill">
+                            <i class="fas fa-arrow-left me-1"></i> Cancel
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<html th:replace="~{base::layout(~{::main})}">
+  <body>
+    <main class="py-5 pt-4 bg-light">
+      <div class="container">
+        <!-- Header -->
+        <div class="text-center mb-5">
+          <h2 class="display-6 fw-bold text-primary">Contact Us</h2>
+          <p class="lead text-muted">We'd love to hear from you! Please fill out the form and we'll get in touch as soon as possible.</p>
+          <hr class="w-25 mx-auto text-primary">
+        </div>
+
+        <!-- Contact Section -->
+        <div class="row g-4">
+          <!-- Contact Form -->
+          <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Send us a Message</h5>
+                
+              </div>
+              <div class="card-body">
+              	<p class="p-2 text-success" th:if="${msg}" th:text="${msg}"></p>
+                <form th:action="@{/contact}" method="post" th:object="${enquiry}">
+                  <div class="row">
+                  	<div class="col-md-6 mb-3">
+                    	<label for="name" class="form-label">Full Name</label>
+                    	<input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Your full name" required>
+                  	</div>
+                  	<div class="col-md-6 mb-3">
+                    	<label for="email" class="form-label">Email Address</label>
+                    	<input type="email" class="form-control" id="email" th:field="*{email}" placeholder="you@example.com" required>
+                  	</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="contactno" class="form-label">Contact Number</label>
+                    <input type="number" class="form-control" id="contactno" th:field="*{contactno}" placeholder="Enter Contact No.." required>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" th:field="*{address}" placeholder="Your Address..." required>
+                  </div>
+                  
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Your Message</label>
+                    <textarea class="form-control" id="message" th:field="*{message}" rows="5" placeholder="Write your message here..." required></textarea>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-md-6">
+            <div class="card shadow-sm border-0 h-100">
+              <div class="card-body">
+                <h5 class="text-primary fw-bold mb-3">Contact Information</h5>
+                <p class="text-muted">
+                  Have questions about our services, feedback, or support? Contact us using the information below.
+                </p>
+                <ul class="list-unstyled">
+                  <li class="mb-3">
+                    <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                    M/s Vidhan Enterprises, Sitapur, Uttar Pradesh, India
+                  </li>
+                  <li class="mb-3">
+                    <i class="fas fa-envelope text-primary me-2"></i>
+                    support@clientcarepro.com
+                  </li>
+                  <li class="mb-3">
+                    <i class="fas fa-phone text-primary me-2"></i>
+                    +91 9876543210
+                  </li>
+                </ul>
+                <hr>
+                <div class="ratio ratio-16x9">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14136.292424774793!2d80.675552!3d27.569178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be30b9f6db3fb%3A0xaaf3f519d285f7df!2sSitapur%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1583922332631!5m2!1sen!2sin" 
+                    width="100%" height="200" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer CTA -->
+        <div class="text-center mt-5">
+          <p class="text-muted">We value your feedback and look forward to connecting with you.</p>
+          <a th:href="@{/}" class="btn btn-outline-primary px-4">Return to Home</a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

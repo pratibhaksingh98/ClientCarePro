@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+<meta charset="UTF-8">
+<title>ClientCare Pro</title>
+<!-- Bootstrap 5 CDN -->
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Font Awesome for Social Icons -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+	integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+</head>
+<body>
+
+	<div class="container-fluid">
+
+		<div class="row sticky-top">
+			<!-- Navbar Section with Sticky Top -->
+			<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+				<div class="container">
+					<a class="navbar-brand fw-bold fs-3" href="#">ClientCare Pro</a>
+					<button class="navbar-toggler" type="button"
+						data-bs-toggle="collapse" data-bs-target="#navbarContent"
+						aria-controls="navbarContent" aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarContent">
+						<ul class="navbar-nav mx-auto">
+							<li class="nav-item"><a class="nav-link fs-5" th:href="@{/}">Home</a></li>
+							<li class="nav-item"><a class="nav-link fs-5"
+								th:href="@{/about}">About Us</a></li>
+							<li class="nav-item"><a class="nav-link fs-5"
+								th:href="@{/services}">Services</a></li>
+							<li class="nav-item"><a class="nav-link fs-5"
+								th:href="@{/contact}">Contact Us</a></li>
+						</ul>
+						<a href="/login" class="btn btn-primary rounded-pill">Go To Login</a>
+					</div>
+				</div>
+			</nav>
+
+		</div>
+
+		<!-- Main Content Area -->
+		<div class="row">
+			<div th:replace="${content}"></div>
+		</div>
+
+
+		<!-- Footer Section -->
+		<div class="row bg-dark">
+			<div class="container">
+				<!-- Enhanced Footer Section -->
+				<footer class="bg-dark text-white pt-5">
+					<div class="container text-md-left">
+						<div class="row text-center text-md-start">
+
+							<!-- Brand and Description -->
+							<div class="col-md-4 mb-2 px-4">
+								<h4 class="text-uppercase fw-bold mb-3">ClientCare Pro</h4>
+								<p>Your trusted CRM solution for streamlining client
+									communication and boosting your business growth. We deliver
+									secure, scalable, and simple CRM tools for businesses of all
+									sizes.</p>
+								<p class="small text-muted">&copy; 2025 ClientCare Pro |
+									Designed for Vidhan Enterprises</p>
+							</div>
+
+							<!-- Quick Links -->
+							<div class="col-md-2 mb-2">
+								<h5 class="text-uppercase fw-semibold mb-3">Quick Links</h5>
+								<ul class="list-unstyled">
+									<li class="mb-2"><a href="/"
+										class="text-white text-decoration-none">Home</a></li>
+									<li class="mb-2"><a href="/about"
+										class="text-white text-decoration-none">About Us</a></li>
+									<li class="mb-2"><a href="/services"
+										class="text-white text-decoration-none">Our Services</a></li>
+									<li class="mb-2"><a href="/login"
+										class="text-white text-decoration-none">Client Login</a></li>
+									<li><a href="/contact"
+										class="text-white text-decoration-none">Contact</a></li>
+								</ul>
+							</div>
+
+							<!-- Quick Links -->
+							<div class="col-md-2 mb-2">
+								<h5 class="text-uppercase fw-semibold mb-3">Quick Links</h5>
+								<ul class="list-unstyled">
+									<li class="mb-2"><a href="/"
+										class="text-white text-decoration-none">Home</a></li>
+									<li class="mb-2"><a href="/about"
+										class="text-white text-decoration-none">About Us</a></li>
+									<li class="mb-2"><a href="/services"
+										class="text-white text-decoration-none">Our Services</a></li>
+									<li class="mb-2"><a href="/login"
+										class="text-white text-decoration-none">Client Login</a></li>
+									<li><a href="/contact"
+										class="text-white text-decoration-none">Contact</a></li>
+								</ul>
+							</div>
+
+							<!-- Contact & Social -->
+							<div class="col-md-4 mb-2">
+								<h5 class="text-uppercase fw-semibold mb-3">Get in Touch</h5>
+								<p>
+									<i class="fas fa-phone-alt me-2"></i>+1 (555) 123-4567
+								</p>
+								<p>
+									<i class="fas fa-envelope me-2"></i><a
+										href="mailto:info@clientcarepro.com"
+										class="text-white text-decoration-none">info@clientcarepro.com</a>
+								</p>
+								<p>
+									<i class="fas fa-map-marker-alt me-2"></i>1234 Business St,
+									Cityville, State, ZIP
+								</p>
+								<div class="mt-3">
+									<a href="#" class="text-white me-3 fs-5"><i
+										class="fab fa-facebook-f"></i></a> <a href="#"
+										class="text-white me-3 fs-5"><i class="fab fa-twitter"></i></a>
+									<a href="#" class="text-white me-3 fs-5"><i
+										class="fab fa-linkedin-in"></i></a> <a href="#"
+										class="text-white fs-5"><i class="fab fa-instagram"></i></a>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</footer>
+
+			</div>
+
+			<!-- Bottom Bar -->
+			<div class="bg-secondary text-white text-center py-3 mt-4">
+				<small class="d-block">All Rights Reserved | ClientCare Pro
+					is a registered trademark of Vidhan Enterprises.</small> <small
+					class="d-block">Unauthorized use or duplication is strictly
+					prohibited.</small>
+			</div>
+
+		</div>
+
+
+	</div>
+
+	<!-- Bootstrap JS -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html th:replace="~{Customer/customerbase::layout(~{::main})}">
+  <body>
+    <main class="col-md-10 mx-auto py-5 pt-2">
+      <!-- Header -->
+      <div class="text-center mb-4">
+        <h2 class="text-primary fw-bold">
+          📰 News/Event Details
+        </h2>
+        <p class="text-muted">Stay updated with the latest happenings</p>
+        <hr class="w-25 mx-auto">
+      </div>
+
+      <!-- News/Event Details Card -->
+      <div class="card shadow-lg border-0 rounded-4 p-3">
+        <!-- Image -->
+        <img th:src="@{'/NewsEvents/' + ${newsEvent.imageBanner}}" 
+             class="card-img-top rounded-4 mb-3" 
+             alt="Banner Image" 
+             style="height: 250px; object-fit: cover;" />
+
+        <div class="card-body">
+          <!-- Type and Date -->
+          <div class="mb-3">
+            <span class="badge bg-info text-dark px-3 py-2 rounded-pill me-2">
+              <i class="bi bi-tag-fill me-1"></i>
+              <span th:text="${newsEvent.type}">Type</span>
+            </span>
+            <span class="text-muted small">
+              <i class="bi bi-calendar-event me-1"></i>
+              <span th:text="${#temporals.format(newsEvent.eventDate, 'dd MMM yyyy HH:mm')}">Event Date</span>
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h4 class="fw-bold text-primary mb-3" th:text="${newsEvent.title}">Title</h4>
+
+          <!-- Full Description -->
+          <p class="text-dark" th:text="${newsEvent.description}">
+            Full description goes here.
+          </p>
+
+          <!-- Back Button -->
+          <a th:href="@{ViewNewsEvents}" class="btn btn-secondary mt-3">
+            <i class="bi bi-arrow-left me-1"></i> Back to News & Events
+          </a>
+        </div>
+      </div>
+
+      <!-- Bootstrap Icons -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </main>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!-- index.html -->
+<html th:replace="~{base::layout(~{::main})}">
+<body>
+	<main class="p-0">	
+		<!-- Login Options Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center text-primary mb-5"><i class="fas fa-sign-in-alt me-2"></i>Choose Your Login</h2>
+        <div class="row justify-content-center">
+
+            <!-- Admin Login Card -->
+            <div class="col-md-5 mb-4">
+                <div class="card border-0 shadow-lg h-100 text-center p-4 hover-effect">
+                    <div class="card-body">
+                        <i class="fas fa-user-shield fa-3x text-danger mb-3"></i>
+                        <h4 class="card-title text-uppercase">Admin Login</h4>
+                        <p class="card-text text-muted">
+                            Access the secure admin dashboard to manage customers, feedback, complaints, and reports.
+                        </p>
+                        <a href="/AdminLogin" class="btn btn-danger mt-3">
+                            <i class="fas fa-sign-in-alt me-1"></i> Login as Admin
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer/Client Login Card -->
+            <div class="col-md-5 mb-4">
+                <div class="card border-0 shadow-lg h-100 text-center p-4 hover-effect">
+                    <div class="card-body">
+                        <i class="fas fa-user-circle fa-3x text-success mb-3"></i>
+                        <h4 class="card-title text-uppercase">Customer Login</h4>
+                        <p class="card-text text-muted">
+                            Log in to track your inquiries, submit feedback, register complaints, and view responses.
+                        </p>
+                        <a href="CustomerLogin" class="btn btn-success mt-3">
+                            <i class="fas fa-sign-in-alt me-1"></i> Login as Customer
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+		<style>
+    .hover-effect:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+</style>
+		
+		
+	</main>
+</body>
+</html>

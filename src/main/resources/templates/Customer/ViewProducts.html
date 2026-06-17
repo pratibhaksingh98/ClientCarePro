@@ -1,0 +1,86 @@
+<html th:replace="~{Customer/customerbase::layout(~{::main})}">
+    <body>
+        <main>
+            <div class="container pb-5 pt-2">
+                <h1 class="mb-4 text-center text-primary font-weight-bold">Explore Our Products</h1>
+
+                <!-- Link to View Products -->
+                <div class="mb-4 text-center">
+                    <a href="Dashboard" class="btn btn-outline-primary">Back to Dashboard</a>
+                </div>
+
+                <!-- Product Listing -->
+                <div class="row row-cols-1 row-cols-md-4 g-4">
+                    <!-- Iterate over products in your model -->
+                    <div th:each="product : ${products}" class="col">
+                        <div class="card h-100 shadow-lg border-0 rounded-lg overflow-hidden">
+                            <!-- Product Image -->
+                            <img th:src="@{'/Products/' + ${product.imageUrl}}" class="card-img-top" alt="Product Image" 
+                                style="object-fit: cover; transition: transform 0.3s ease-in-out;" 
+                                onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'"/>
+
+                            <div class="card-body p-4">
+                                <!-- Product Name -->
+                                <h5 class="card-title text-dark font-weight-bold" th:text="${product.name}">Product Name</h5>
+                                
+                                <!-- Product Description (truncate text for neatness) -->
+                                <p class="card-text text-muted" th:text="${product.description}" style="max-height: 60px; overflow: hidden; font-size: 14px;">Product description...</p>
+
+                                <!-- Price and Availability -->
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <!-- Styled price with currency -->
+                                    <p class="card-text font-weight-bold text-primary" style="font-size: 18px;">
+                                        ₹<span th:text="${product.price}">0.00</span>
+                                    </p>
+
+                                    <!-- Availability Status -->
+                                    <span class="badge rounded-pill" th:class="${product.availabilityStatus == 'AVAILABLE' ? 'bg-success' : 'bg-danger'}" 
+                                        th:text="${product.availabilityStatus}">Available</span>
+                                </div>
+
+                                <!-- Button to view product details -->
+                                <a th:href="@{ProductDetail/{id}(id=${product.id})}" class="btn btn-primary w-100 mt-3">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- If no products available, display a message -->
+                <div th:if="${#lists.isEmpty(products)}" class="text-center mt-4">
+                    <p class="alert alert-warning">No products available at the moment. Please check back later.</p>
+                </div>
+            </div>
+            
+            <style>
+                .card{
+                    transition:0.4s;
+                    border-radius: 15px;
+                    border: 1px solid #e0e0e0;
+                }
+                .card:hover{
+                    transform: translateY(-10px);
+                    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .card-img-top {
+                    border-bottom: 1px solid #e0e0e0;
+                }
+
+                .badge {
+                    font-size: 0.875rem;
+                }
+
+                .btn-primary {
+                    background-color: #007bff;
+                    border-color: #007bff;
+                    transition: background-color 0.3s ease, border-color 0.3s ease;
+                }
+
+                .btn-primary:hover {
+                    background-color: #0056b3;
+                    border-color: #004085;
+                }
+            </style>
+        </main>
+    </body>
+</html>

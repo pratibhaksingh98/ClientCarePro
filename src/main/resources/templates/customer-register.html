@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Customer Register</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body{
+background:#198754;
+font-family:Arial;
+}
+
+.navbar{
+background:white;
+padding:15px 80px;
+}
+
+.register-box{
+width:430px;
+background:white;
+padding:35px;
+border-radius:18px;
+margin:auto;
+margin-top:80px;
+box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+}
+
+.register-box h2{
+font-weight:bold;
+text-align:center;
+}
+
+.btn-register{
+background:#198754;
+color:white;
+width:100%;
+border-radius:30px;
+padding:12px;
+font-weight:bold;
+border:none;
+}
+
+.btn-register:hover{
+background:#157347;
+}
+
+.footer{
+text-align:center;
+margin-top:20px;
+}
+</style>
+
+</head>
+<body>
+
+<nav class="navbar d-flex justify-content-between">
+<h2><b>ClientCare Pro</b></h2>
+
+<div>
+<a href="#">Home</a>&nbsp;&nbsp;
+<a href="#">About Us</a>&nbsp;&nbsp;
+<a href="#">Services</a>&nbsp;&nbsp;
+<a href="#">Contact Us</a>
+</div>
+
+<a href="/CustomerLogin" class="btn btn-primary rounded-pill">
+Go To Login
+</a>
+
+</nav>
+
+
+<div class="register-box">
+
+<h2>CUSTOMER REGISTER</h2>
+<p class="text-center text-muted">Create your ClientCare account</p>
+
+<form th:action="@{/CustomerRegister}" method="post">
+
+<div class="mb-3">
+<label>Full Name</label>
+<input type="text" name="name" class="form-control" placeholder="Enter name">
+</div>
+
+<div class="mb-3">
+<label>Email</label>
+<input type="email" name="email" class="form-control" placeholder="Enter email">
+</div>
+
+<div class="mb-3">
+<label>Phone</label>
+<input type="text" name="phone" class="form-control" placeholder="Enter phone">
+</div>
+
+<div class="mb-3">
+<label>Address</label>
+<textarea name="address" class="form-control" rows="3"
+placeholder="Enter address"></textarea>
+</div>
+
+<div class="mb-3">
+<label>Password</label>
+<input type="password" name="password" class="form-control" placeholder="Create password">
+</div>
+
+<button class="btn-register">
+Register
+</button>
+
+</form>
+
+<div class="text-center mt-3">
+Already User?
+<a href="/CustomerLogin">Login Here</a>
+</div>
+
+</div>
+
+<div class="footer">
+© 2025 ClientCare Pro | Customer Portal
+</div>
+
+</body>
+</html>

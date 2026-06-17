@@ -1,0 +1,68 @@
+<html lang="en" th:replace="~{Admin/adminbase::layout(~{::main})}">
+<body>
+<main class="p-4">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-header bg-primary text-white rounded-top-4 d-flex justify-content-between align-items-center">
+            <h4 class="mb-0"><i class="fas fa-box me-2"></i> All Products</h4>
+            <a th:href="@{AddProduct}" class="btn btn-light btn-sm rounded-pill">
+                <i class="fas fa-plus me-1"></i> Add New Product
+            </a>
+        </div>
+        <div class="card-body px-4">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center" id="datatablesSimple">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#ID</th>
+                            <th>Product Image</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Price (₹)</th>
+                            <th>Availability</th>
+                            <th>Created</th>
+                            <!-- <th>Updated</th> -->
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="product, srno : ${products}">
+                            <td th:text="${srno.index+1}" class=""></td>
+                            <td>
+                                <img th:src="@{'/Products/'+${product.imageUrl}}" class="img-thumbnail" style="height: 40px; width: 40px;" alt="Product Image"/>
+                            </td>
+                            <td th:text="${product.name}"></td>
+                            <td th:text="${product.category.category}"></td>
+                            <td th:text="${product.description}"></td>
+                            <td th:text="${product.price}"></td>
+                            <td>
+                                <span class="badge mt-2" th:classappend="${(product.availabilityStatus.name() == 'AVAILABLE') ? 'bg-success' : 'bg-danger'}" th:text="${product.availabilityStatus}"></span>
+                            </td>
+                            <td th:text="${#temporals.format(product.createdAt, 'dd-MM-yyyy HH:mm')}"></td>
+                            <!-- <td th:text="${#temporals.format(product.updatedAt, 'dd-MM-yyyy HH:mm')}"></td>
+                             --><td>
+                                <!-- <a th:href="@{'/EditProduct/' + ${product.id}}" class="btn btn-sm btn-primary rounded-pill mb-1">
+                                    <i class="fas fa-edit"></i>
+                                </a> -->
+                                <a th:href="@{DeleteProduct(id = ${product.id})}" class="btn btn-sm btn-danger rounded-pill mb-1 p-2" onclick="return confirm('Are you sure to delete this product?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr th:if="${#lists.isEmpty(products)}">
+                            <td colspan="10" class="text-center text-muted">No products found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+    	td,th{
+    	white-space: nowrap;	
+    }
+    </style>
+</main>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!-- index.html -->
+<html th:replace="~{base::layout(~{::main})}">
+<body>
+<main class="p-0">
+	
+	
+    <!-- Hero Banner -->
+    <section class="bg-primary text-white text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Welcome to <span class="text-warning">ClientCare Pro</span> 🚀</h1>
+            <p class="lead">A smarter way to manage customer interactions, inquiries, and feedback with ease.</p>
+            <a class="btn btn-light btn-lg mt-3" th:href="@{/customers}">
+                <i class="fas fa-play-circle me-2"></i>Get Started
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <!-- Image -->
+            <div class="col-md-6 mb-4 mb-md-0 text-center px-4">
+                <img src="images/Client_Care_Service.jpg" alt="About ClientCare Pro" class="img-fluid rounded shadow-lg w-100 animate__animated animate__fadeInLeft">
+            </div>
+
+            <!-- Text Content -->
+            <div class="col-md-6">
+                <h2 class="text-success mb-3">
+                    <i class="fas fa-info-circle me-2"></i>About <span class="text-primary">ClientCare Pro</span>
+                </h2>
+                <p class=" text-dark">
+                    🏢 Designed exclusively for <strong>TATA Consultancy Services</strong>, <span class="text-primary fw-semibold">ClientCare Pro</span> is your all-in-one CRM platform tailored to streamline customer service, manage inquiries, complaints, feedback, and product support with simplicity and power.
+                </p>
+                <div class="mt-4">
+                    <ul class="list-unstyled fs-6">
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Efficient Complaint and Feedback Handling</li>
+                        <li class="mb-2"><i class="fas fa-users-cog text-primary me-2"></i>Customer-Centric Approach with Real-Time Insights</li>
+                        <li class="mb-2"><i class="fas fa-tachometer-alt text-success me-2"></i>Fast, Responsive, and User-Friendly Interface</li>
+                        <li class="mb-2"><i class="fas fa-shield-alt text-danger me-2"></i>Secure Admin Panel for Reliable Management</li>
+                    </ul>
+                    <a th:href="@{/about}" class="btn btn-outline-primary mt-3">
+                        <i class="fas fa-arrow-right me-1"></i> Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- Core Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 text-success"><i class="fas fa-cogs me-2"></i>Core Features</h2>
+            <div class="row text-center">
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0maDLwJ0-ANWa0QPW1opmTXCnu9vZhjb-dw&s" class="card-img-top" alt="Customer">
+                        <div class="card-body">
+                            <i class="fas fa-users fa-2x text-primary mb-2"></i>
+                            <h5 class="fw-semibold">Customer Management</h5>
+                            <p class="small">Manage all customer details and engagement history.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSegaGnwJFga-BsBVtfM_G-ZSmmWGdxpnaTrw&s" class="card-img-top" alt="Inquiry">
+                        <div class="card-body">
+                            <i class="fas fa-question-circle fa-2x text-warning mb-2"></i>
+                            <h5 class="fw-semibold">Inquiry Handling</h5>
+                            <p class="small">Easily track and manage inquiries from customers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Complaint">
+                        <div class="card-body">
+                            <i class="fas fa-tools fa-2x text-danger mb-2"></i>
+                            <h5 class="fw-semibold">Complaint Resolution</h5>
+                            <p class="small">Log issues and take appropriate action in time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 shadow border-0">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTZg7wEsG7YcMIH0vRAEsjNt0yEhEHmdfdNg&s" class="card-img-top" alt="Feedback">
+                        <div class="card-body">
+                            <i class="fas fa-comment-dots fa-2x text-success mb-2"></i>
+                            <h5 class="fw-semibold">Feedback Analysis</h5>
+                            <p class="small">Gather and analyze feedback to improve service.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Modules Overview -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 text-dark"><i class="fas fa-puzzle-piece me-2"></i>Modules Overview</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm border-0 p-3">
+                        <i class="fas fa-id-card fa-2x text-primary mb-2"></i>
+                        <h6 class="fw-bold">Customer Module</h6>
+                        <p>Manages customer details, communication logs, and activity status.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm border-0 p-3">
+                        <i class="fas fa-box-open fa-2x text-info mb-2"></i>
+                        <h6 class="fw-bold">Product Module</h6>
+                        <p>Maintain and display your services or product portfolio.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm border-0 p-3">
+                        <i class="fas fa-bullhorn fa-2x text-warning mb-2"></i>
+                        <h6 class="fw-bold">News & Events</h6>
+                        <p>Share latest business events and announcements with your clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="text-center py-5 bg-success text-white">
+        <div class="container">
+            <h3 class="mb-3"><i class="fas fa-rocket me-2"></i>Ready to Get Started?</h3>
+            <a class="btn btn-light btn-lg" th:href="@{/login}">
+                <i class="fas fa-sign-in-alt me-2"></i>Login to Your Dashboard
+            </a>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>

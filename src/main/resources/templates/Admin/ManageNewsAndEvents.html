@@ -1,0 +1,70 @@
+
+<html lang="en" th:replace="~{Admin/adminbase::layout(~{::main})}">
+<body>
+<main class="p-4">
+    <div class="container">
+        <h4 class="mb-4 text-center fw-bold text-primary">Manage News & Events</h4>
+
+        <!-- Add Button -->
+        <div class="text-end mb-3">
+            <a th:href="@{AddNewsAndEvents}" class="btn btn-success rounded-pill">
+                <i class="fas fa-plus-circle me-1"></i> Add News/Event
+            </a>
+        </div>
+
+        <!-- Card Wrapper -->
+        <div class="card shadow rounded-4">
+            <div class="card-body">
+                <!-- Table -->
+                <div class="table-responsive bg-white">
+                    <table id="datatablesSimple" class="table text-center">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Type</th>
+                                <th>Event Date</th>
+                                <th>Created Date</th>
+                                <th>Banner</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="news, iterStat : ${newsEventsList}">
+                                <td th:text="${iterStat.count}"></td>
+                                <td th:text="${news.title}"></td>
+                                <td th:text="${news.description.length() > 40 ? news.description.substring(0, 40) + '...' : news.description}"></td>
+                                <td>
+                                    <span class="badge mt-2"
+                                          th:classappend="${news.type.name() == 'NEWS'} ? 'bg-info' : 'bg-warning text-dark'"
+                                          th:text="${news.type}">
+                                    </span>
+                                </td>
+                                <td th:text="${news.eventDate}"></td>
+                                <td th:text="${news.createdDate}"></td>
+                                <td>
+                                    <img th:src="@{'/NewsEvents/'+${news.imageBanner}}" alt="Banner" class="img-thumbnai" width="80" height="40"/>
+                                </td>
+                                <td>
+                                    <!-- <a th:href="@{'/admin/editNewsEvent/' + ${news.id}}" class="btn btn-sm btn-primary rounded-pill">
+                                        <i class="fas fa-edit"></i>
+                                    </a> -->
+                                    <a th:href="@{DeleteNewsEvent(id= ${news.id})}" class="btn btn-sm btn-danger rounded-pill p-2"
+                                       onclick="return confirm('Are you sure you want to delete this?');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr th:if="${newsEventsList.size() == 0}">
+                                <td colspan="8">No records found.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

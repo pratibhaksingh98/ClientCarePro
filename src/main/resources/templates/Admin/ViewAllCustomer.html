@@ -1,0 +1,46 @@
+<html th:replace="~{Admin/adminbase::layout(~{::main})}">
+  <body>
+    <main class="p-4">
+      <div class="card mb-4">
+        <div class="card-header fw-bold">
+          <i class="fas fa-table me-1"></i>
+          All Customers Data
+        </div>
+        <div class="card-body">
+          <table id="datatablesSimple" class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Created At</th>
+                <th>Status</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="customer : ${customers}">
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.email}"></td>
+                <td th:text="${customer.phone}"></td>
+                <td th:text="${customer.address}"></td>
+                <td th:text="${customer.createdAt}"></td>
+                <td>
+                  <span th:text="${customer.status}" 
+                        th:classappend="${customer.status.name() == 'ACTIVE'} ? 'badge bg-success' : 'badge bg-danger'">
+                  </span>
+                </td>
+                <td>
+                  <a th:href="@{EditCustomer(id= ${customer.id})}" class="btn btn-sm btn-primary">Edit</a>
+                  <a th:href="@{DeleteCustomer(id= ${customer.id})}" class="btn btn-sm btn-danger" 
+                     onclick="return confirm('Are you sure you want to delete this customer?');">Delete</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

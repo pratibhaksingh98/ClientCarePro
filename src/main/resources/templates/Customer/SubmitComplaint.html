@@ -1,0 +1,51 @@
+<html th:replace="~{Customer/customerbase::layout(~{::main})}" xmlns:th="http://www.thymeleaf.org">
+  <body>
+    <main>
+      <div class="container mt-5">
+        <div class="card col-md-7 mx-auto shadow-lg rounded-4 p-4">
+          <h3 class="mb-4 text-center text-danger">Submit a Complaint</h3>
+
+          <!-- Success Alert -->
+          <div th:if="${success}" class="alert alert-success text-center" role="alert">
+            Your complaint has been submitted successfully. We will get back to you shortly.
+          </div>
+
+          <form th:action="@{SubmitComplaint}" th:object="${complaint}" method="post" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="issue" class="form-label">Complaint Title <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="issue" th:field="*{issue}" placeholder="Enter a short title for your issue" required>
+              <div class="invalid-feedback">Issue title is required.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="details" class="form-label">Detailed Description <span class="text-danger">*</span></label>
+              <textarea class="form-control" id="details" th:field="*{details}" rows="5" placeholder="Describe your issue in detail" required></textarea>
+              <div class="invalid-feedback">Please provide detailed information.</div>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" class="btn btn-danger">Submit Complaint</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <script>
+        // Bootstrap form validation
+        (function () {
+          'use strict';
+          var forms = document.querySelectorAll('.needs-validation');
+          Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        })();
+      </script>
+    </main>
+  </body>
+</html>
