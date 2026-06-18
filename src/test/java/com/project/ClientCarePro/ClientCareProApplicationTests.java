@@ -1,10 +1,10 @@
-package com.project.ClientCarePro;
+package com.project.clientcarepro;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ClientCareProApplicationTests {
+class clientcareproApplicationTests {
 
 	@Test
 	void contextLoads() {
