@@ -28,7 +28,7 @@
 	</scm>
 	<properties>
     <java.version>21</java.version>
-    <start-class>com.project.clientcarepro.ClientCareProApplication</start-class>
+    <start-class>com.project.ClientCarePro.ClientCareProApplication</start-class>
 </properties>
 	<dependencies>
 		<dependency>
