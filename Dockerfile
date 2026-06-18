@@ -8,4 +8,4 @@ RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8181
 
-CMD ["java", "-Dloader.main=com.project.clientcarepro.ClientCareProApplication", "-jar", "target/ClientCarePro-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/ClientCarePro-0.0.1-SNAPSHOT.jar"]
